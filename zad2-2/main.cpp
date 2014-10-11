@@ -17,71 +17,47 @@ int main()
 
 
         odpowiedz= false;
+        bool condition=true;
         cout<< "Oto liczba calkowita: \t";
         x=rand()- RAND_MAX/2 ;
         cout << x << endl;
         cout<< "Czy ta liczba jest dodatnia (+), czy ujemna (-), czy zerowa 0?"<< endl;
-        poczatek:
-        cin>> y;
+        while (condition==true)
+        {
+            cin>> y;
+            condition=false;
+            if (y!='0' && y!='+' && y!='-')
+            {
+                cout << "wpisz znak +, -, 0" << endl;
+                condition=true;
+            }
+            else
+            {
 
-        if(x>0)
-        {
-            switch (y)
-            {
-                case '+':
-                cout << "poprawna odpowiedz! \t"<< x<< endl;
-                 odpowiedz=true;
-                 i++;
-                 break;
-                case '-':
-                    cout<< "nie poprawna odpowiedz." << endl;
-                    break;
-                case '0':
-                    cout << "nie poprawna odpowiedz." << endl;
-                    break;
-                default:
-                    cout << "wpisz znak +, -, 0 aby określić liczbe" << endl;
-                    goto poczatek;
-            }
-        }
-        else if (x<0)
-        {
-            switch (y)
-            {
-                case '-':
-                    cout << "poprawna odpowiedz!"<< endl;
-                    odpowiedz=true;
-                    i++;
-                    break;
-                case '+':
-                    cout<< "nie poprawna odpowiedz." << endl;
-                    break;
-                case '0':
-                    cout << "nie poprawna odpowiedz." << endl;
-                    break;
-                default:
-                    cout << "wpisz znak +, -, 0 aby określić liczbe" << endl;
-                    goto poczatek;
-            }
-        }
-        else if (x==0)
-        {
-            switch (y)
-            {
-                case '0':
-                    cout << "poprawna odpowiedz!"<< endl;
-                    odpowiedz=true;
-                    i++;
-                    break;
-                case '+':
-                    cout<< "nie poprawna odpowiedz." << endl;
-                    break;
-                case '-':
-                    cout << "nie poprawna odpowiedz." << endl;
-                    break;
-            default:
-                cout << "wpisz znak +, -, 0 aby określić liczbe" << endl;
-                goto poczatek;
+                if(x>0 && y=='+')
+                {
+                        cout << "Poprawna odpowiedz!" << endl;
+                        odpowiedz=true;
+                        i++;
+                        break;
+                }
+                else if (x<0 && y=='-')
+                {
+                        cout << "Poprawna odpowiedz!" << endl;
+                        odpowiedz=true;
+                        i++;
+                        break;
+
+                }
+                else if (x==0 && y=='0')
+                {
+                        cout << "Poprawna odpowiedz!" << endl;
+                        odpowiedz=true;
+                        i++;
+                        break;
+                }
+
+                cout << "Nie poprawna odpowiedz." << endl;
             }
         }
     }
