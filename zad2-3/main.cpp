@@ -1,58 +1,57 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
 int main()
 {
-    string slowo="poczatek";
-    int slowotab[3]={0,0,0};
-    int max;
-    int help;
+    string word;
+    string array[5];
+    string temp;
+    int i_min;
 
-
-    do
+    for (int i=0; i<5; i++)
     {
-        cout << "napisz slowo: \n";
-        cin >> slowo;
-        max=slowo.size();
-        help=max;
-
-        if (slowo=="koniec")
-        {
-
-        }
-       /* else
-        {
-            for (int i=0; i<3;i++)
-            {
-                if (min<slowotab[i])
-                {
-                    help=slowotab[i];
-                    slowotab[i]=min;
-                    min=help;
-                }
-            }
-
-        }*/
-        else
-        {
-            for(int i=0; i<3 ; i++)
-            {
-                if(slowotab[i] <max)
-                {
-                    help=slowotab[i];
-                    slowotab[i]=max;
-                    max=help;
-                }
-            }
-        }
-    } while (slowo!="koniec");
-
-    cout << "slowa napisane w kolejnosci od najdluzszego do  najkrotszego" << endl;
-
-    for (int i=0;i<3; i++)
-    {
-        cout << slowotab[i] << endl;
+        cout << "Write a word: " << endl;
+        cin >> word;
+        array[i]=word;
     }
+ /*   for (int i=0; i<4; i++) // selection sort
+    {
+        i_min=i;
+
+        for (int j=i+1; j<5; j++)
+        {
+            if( array[j].size() > array[i_min].size() )
+            {
+                i_min=j;
+            }
+        }
+            temp=array[i];
+            array[i]=array[i_min];
+            array[i_min]=temp;
+    }
+*/
+
+    for (int i=0; i<5;i++) // insertion sort
+    {
+
+        int j=i;
+        temp=array[j];
+
+        while (j>0 && temp.size() < array[j-1].size())
+        {
+            array[j]=array[j-1];
+            j--;
+        }
+
+        array[j]=temp;
+    }
+
+    for (int i=0;i<5;i++)
+    {
+        cout << array[i] << endl;
+    }
+
 }
 
